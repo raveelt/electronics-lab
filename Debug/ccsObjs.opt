@@ -1,0 +1,6 @@
+"./P2/main.obj"
+"./P3/main.obj"
+"./P4/main.obj"
+"../lnk_msp430f5529.cmd"
+-llibmath.a
+-llibc.a

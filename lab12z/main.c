@@ -62,7 +62,7 @@ void main(int time)
 
     for (i = 1 ; i <= time; i++){
 
-        _delay_cycles(50000);
+        _delay_cycles(50000); //_delay_cycles (1000000) this value is one sec delay
 
 
         if (i % 1000 == 0){

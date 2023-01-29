@@ -22,10 +22,9 @@ void main(void)
 	P2DIR = 0b00000001;
 
     // far right display
-
 	P2OUT = 1; //P2OUT = 0b00000001;
-	P4OUT = 0; //P4OUT = 0b00000000;
-	P6OUT = 5; //P6OUT = 0b00000100;
+	P4OUT = 0; //P4OUT = 0b00000000; //can use decimal or binary.
+	P6OUT = 4; //P6OUT = 0b00000100;
 	P2OUT = 0; //P2OUT = 0b00000000;
 
 

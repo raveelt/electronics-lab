@@ -18,8 +18,6 @@ int main(void)
 
   while (1)
   {
-
-    _delay_cycles(10000);
     ADC12CTL0 |= ADC12SC;                   // Start sampling
 
 
@@ -33,68 +31,126 @@ int main(void)
         P1OUT |= BIT0;   //LED
         P4OUT &= ~BIT7;  //LED
 
+        if(volts_y > 3200 && volts_y < 3300){
+            P1OUT &= ~BIT3;
+            P1OUT |=  BIT5;
+            P1OUT &= ~BIT2;
+            P1OUT &= ~BIT4;
+        }
+        else if(volts_y < 2850 && volts_y > 2650){ //works gret
+            P1OUT &= ~BIT5;
+            P1OUT |=  BIT3;
+            P1OUT &= ~BIT2;
+            P1OUT &= ~BIT4;
+        }
+
+        else if(volts_y > 3300){
+            P1OUT &= ~BIT3;
+            P1OUT |=  BIT5;
+            P1OUT |=  BIT2;
+            P1OUT &= ~BIT4;
+        }
+        else if(volts_y < 2650){ //works well
+            P1OUT &= ~BIT5;
+            P1OUT |=  BIT3;
+            P1OUT |=  BIT4;
+            P1OUT &= ~BIT2;
+        }
+        else{
         P1OUT |=  BIT3;
         P1OUT |=  BIT5;
         P1OUT &= ~BIT2;
         P1OUT &= ~BIT4;
+        }
+
+
+
+
     }
 
     else if(volts_x < 2800){
         P1OUT &= ~BIT0;
         P4OUT |= BIT7;
 
+        if(volts_y > 3200 && volts_y < 3300){
+            P1OUT &= ~BIT3;
+            P1OUT |=  BIT4;
+            P1OUT &= ~BIT2;
+            P1OUT &= ~BIT5;
+        }
+        else if(volts_y < 2850 && volts_y > 2650){ //works gret
+            P1OUT &= ~BIT5;
+            P1OUT |=  BIT2;
+            P1OUT &= ~BIT3;
+            P1OUT &= ~BIT4;
+        }
 
-        P1OUT |=  BIT2;
-        P1OUT |=  BIT4;
-        P1OUT &= ~BIT3;
-        P1OUT &= ~BIT5;
+        else if(volts_y > 3300){
+            P1OUT &= ~BIT2;
+            P1OUT |=  BIT4;
+            P1OUT |=  BIT3;
+            P1OUT &= ~BIT5;
+        }
+        else if(volts_y < 2650){ //works well
+            P1OUT &= ~BIT3;
+            P1OUT |=  BIT2;
+            P1OUT |=  BIT5;
+            P1OUT &= ~BIT4;
+        }
+        else{
+            P1OUT |=  BIT2;
+            P1OUT |=  BIT4;
+            P1OUT &= ~BIT3;
+            P1OUT &= ~BIT5;
+        }
+
     }
     else{
+
         P1OUT &= ~BIT0;
         P4OUT &= ~BIT7;
-
 
         P1OUT &= ~BIT2;
         P1OUT &= ~BIT3;
         P1OUT &= ~BIT4;
         P1OUT &= ~BIT5;
+
     }
 
 
-    // turning
-    if (volts_y > 3200 && volts_y < 3700){
-        P1OUT &=  ~BIT2;
-        P1OUT &=  ~BIT3;
-    }
-    else if (volts_y < 2800 && volts_y > 2300){
-        P1OUT &=  ~BIT4;
-        P1OUT &=  ~BIT5;
-        }
-
-    else if (volts_y >= 3700){
-        if ((P1OUT & BIT2) != 0){
-            P1OUT &= ~BIT2;
-            P1OUT |= BIT3;
-        }
-        else{
-            P1OUT &= ~BIT3;
-            P1OUT |= BIT2;
-        }
-    }
-    else if(volts_y < 2300){
-        if ((P1OUT & BIT4) != 0){
-            P1OUT &= ~BIT4;
-            P1OUT |= BIT5;
-        }
-        else{
-            P1OUT &= ~BIT5;
-            P1OUT |= BIT4;
-        }
-    }
+//    // turning
+//    if (volts_y > 3200){// && volts_y < 3400){
+//        P1OUT &=  ~BIT2;
+//        P1OUT &=  ~BIT3;
+//    }
+//    else if (volts_y < 2900){//&& volts_y > 2700){
+//        P1OUT &=  ~BIT4;
+//        P1OUT &=  ~BIT5;
+//        }
+//
+//    else if (volts_y > 3400){
+//        if ((P1OUT & BIT2) != 0){
+//            P1OUT &= ~BIT2;
+//            P1OUT |= BIT3;
+//        }
+//        else{
+//            P1OUT &= ~BIT3;
+//            P1OUT |= BIT2;
+//        }
+//    }
+//    else if(volts_y < 2700){
+//        if ((P1OUT & BIT4) != 0){
+//            P1OUT &= ~BIT4;
+//            P1OUT |= BIT5;
+//        }
+//        else{
+//            P1OUT &= ~BIT5;
+//            P1OUT |= BIT4;
+//        }
+//    }
 
 
   }
 
 }
-
 

@@ -1,6 +1,6 @@
 ## Final Project
 
-For the project, I made a accelerometer-controlled car. The components needed for the construction are as follows:
+For the project, I made an accelerometer-controlled car. The components needed for the construction are as follows:
 
 - Accelerometer (3-axis)
 - Wireless Transmitter/Reciever (434 MHz)
@@ -8,12 +8,11 @@ For the project, I made a accelerometer-controlled car. The components needed fo
 - Motor Regulator
 - Microcontroller (MSP430)
 
-Exact details regarding the apparatus and individual component functions is described in the final report which can be found in the projects folder.
+Exact details regarding the apparatus and individual component functions are described in the report found in the final-project folder.
 
 ## Summary of Control:
 
 ![image](https://github.com/raveelt/electronics-lab/assets/64331687/83fe5340-24d1-45f9-be12-b4c80dd8a426)
-
 
 ## Results
 
